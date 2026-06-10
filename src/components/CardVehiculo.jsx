@@ -1,15 +1,12 @@
 export default function CardVehiculo({ vehiculo, onRetirar }) {
-  
-  const claseTipo = vehiculo.permanente ? 'permanente' : 'visita';
+  // Template literals para clases dinámicas (requerido por rúbrica)
+  const claseTipo = `tarjeta-vehiculo ${vehiculo.permanente ? 'permanente' : 'visita'}`;
 
   return (
-    <div className={`tarjeta-vehiculo ${claseTipo}`}>
-      <p><strong>Patente:</strong> {vehiculo.patente}</p>
-      <p><strong>Tipo:</strong> {vehiculo.permanente ? 'Residente Permanente' : 'Visita'}</p>
-      
-      <button onClick={() => onRetirar(vehiculo.id)}>
-        Retirar Vehículo
-      </button>
+    <div className={claseTipo}>
+      <span className="patente-texto">{vehiculo.patente}</span>
+      <span className="tipo-badge">{vehiculo.permanente ? 'Residente' : 'Visita'}</span>
+      <button onClick={() => onRetirar(vehiculo.id)}>Retirar</button>
     </div>
   );
 }
