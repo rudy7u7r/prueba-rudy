@@ -48,7 +48,6 @@ function App() {
 
         <section className="contenedor-lista">
           <h3>Cupos Disponibles: {10 - vehiculos.length} / 10</h3>
-          {/* Pasamos correctamente la lista y la función de retiro */}
           <ListaVehiculos lista={vehiculos} onRetirar={retirarVehiculo} />
         </section>
       </main>
